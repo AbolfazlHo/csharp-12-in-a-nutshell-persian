@@ -1959,12 +1959,18 @@ public class Asset
 هنگام نمونه‌سازی، **ترتیب مقداردهی** به شکل زیر است:
 
 1. **از زیرکلاس به کلاس پایه**
+
    a. فیلدهای زیرکلاس مقداردهی می‌شوند
+
    b. آرگومان‌های فراخوانی constructor پایه ارزیابی می‌شوند
 
+
 2. **از کلاس پایه به زیرکلاس**
+
    a. بدنه constructor کلاس پایه اجرا می‌شود
+
    b. بدنه constructor زیرکلاس اجرا می‌شود
+   
 
 ```csharp
 public class B
@@ -2587,8 +2593,15 @@ public class RichTextBox : TextBox
 تبدیل یک **struct** به یک interface باعث **boxing** می‌شود. اما فراخوانی یک عضو ضمنی پیاده‌سازی‌شده روی struct، باعث boxing نمی‌شود:
 
 ```csharp
-interface I { void Foo(); }
-struct S : I { public void Foo() {} }
+interface I 
+{ 
+    void Foo(); 
+}
+
+struct S : I 
+{ 
+    public void Foo() {} 
+}
 
 S s = new S();
 s.Foo();         // بدون boxing
@@ -2706,6 +2719,7 @@ interface ICarnivore      {}
 ```
 
 * مثال واقعی: Bird و Insect می‌توانند معادل Windows control و web control باشند. FlyingCreature و Carnivore می‌توانند معادل IPrintable و IUndoable باشند.
+
 **Enums 🔢**
 
 یک **enum** نوع ویژه‌ای از value type است که به شما امکان می‌دهد گروهی از **ثابت‌های عددی نام‌گذاری‌شده** را تعریف کنید. به عنوان مثال:
@@ -3079,7 +3093,7 @@ Stack<int> stack = new Stack<int>();
 * مانند IntStack: برای نوع خاص `T` تخصصی شده است.
 * مزیت: **ایمنی نوعی** و کاهش نیاز به cast و boxing.
 
-> ObjectStack عملاً معادل `Stack<object>` است.
+`ObjectStack` عملاً معادل `Stack<object>` است.
 
 ---
 
